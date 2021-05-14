@@ -1,0 +1,951 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>SQUADS | E-Sport Mercenaries</title>
+	<link rel="icon" href="images/icon.png" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="https://kit.fontawesome.com/199e4cee19.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body>
+	<div id="container-back" class="container-fluid">
+		<div class="row">
+			<div class="carousel slide carousel-fade">
+				<div class="carousel-inner">
+					<div class="carousel-item active"></div>
+					<div class="carousel-item"></div>
+					<div class="carousel-item"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="login" class="container-fluid">
+		<div class="row d-flex align-items-center">
+			<div class="col-12 col-md-4 offset-md-4 login-box">
+				<div class="d-flex justify-content-between">
+					<svg width="55" height="24">
+						<polygon points="12,2 22,22 2,22" />
+						<polygon points="17,2 37,2 37,22 17,22" />
+						<polygon points="0,12 42,12" />
+					</svg>
+					<p><strong>SQUADS</strong> Secure Login <i class="fas fa-lock"></i></p>
+				</div>
+				<svg width="100%" height="3">
+					<rect width="100%" height="3" style="fill: rgb(255, 255, 255);" />
+				</svg>
+				<form>
+					<div class="mb-3">
+						<label for="username" class="form-label"><i class="fas fa-fingerprint"></i> Username</label>
+						<input type="text" class="form-control" id="username" aria-describedby="usernameHelp">
+					</div>
+					<div class="mb-3">
+						<label for="password" class="form-label"><i class="fas fa-user-lock"></i> Password</label>
+						<input type="password" class="form-control" id="password" aria-describedby="passwordHelp">
+					</div>
+					<div class="d-flex justify-content-end">
+						<button type="button" class="btn btn-warning" onclick="emulateLogin(username.value);">Authenticate</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div id="container" class="container-fluid">
+
+		<div id="header" class="row d-flex">
+			<div class="col-12">
+				<nav class="navbar navbar-expand-sm navbar-light">
+					<svg width="55" height="24">
+						<polygon points="12,2 22,22 2,22" class="shape" />
+						<polygon points="17,2 37,2 37,22 17,22" class="shape" />
+						<polygon points="0,12 42,12" class="shape" />
+					</svg>
+					<a class="navbar-brand" href="#">SQUADS</a>
+					<button id="navbar-toggler" class="navbar-toggler" type="button" onclick="animateNav();"
+						data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-light"><i class="fas fa-bars"></i></span>
+					</button>
+					<div id="navbar" class="collapse navbar-collapse custom-transition">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item">
+								<a class="nav-link" href="#" accesskey="p" onclick="containerOpen(1);">PC</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#" accesskey="c" onclick="containerOpen(2);">Console</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#" accesskey="h" onclick="containerOpen(3);">Handheld</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#" accesskey="m" onclick="containerOpen(4);">Mobile</a>
+							</li>
+						</ul>
+						<form class="d-flex search">
+							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+							<button class="btn" type="submit"><i class="fas fa-search"></i></button>
+						</form>
+					</div>
+				</nav>
+			</div>
+		</div>
+
+		<div id="main" class="row">
+			<!-- Welcome -->
+			<div class="col-12 d-flex align-items-center welcome">
+				<div class="col-12">
+					<p id="welcome">&nbsp;</p>
+					<p id="subwelcome">&nbsp;</p>
+				</div>
+			</div>
+
+			<!-- Left (title) -->
+			<div id="left-1" class="col-2 title">
+				<div class="container-fluid">
+					<div class="row heading">
+						<div class="col-12 d-flex align-items-center justify-content-between">
+							<h2>PC</h2>
+							<h2><i class="fas fa-laptop"></i></h2>
+						</div>
+					</div>
+					<div class="row separator">
+						<div class="col-12">
+							<svg width="100%" height="3">
+								<rect width="100%" height="3" style="fill: rgb(255, 255, 255);" />
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="left-2" class="col-2 title">
+				<div class="container-fluid">
+					<div class="row heading">
+						<div class="col-12 d-flex align-items-center justify-content-between">
+							<h2>Console</h2>
+							<h2><i class="fas fa-gamepad"></i></h2>
+						</div>
+					</div>
+					<div class="row separator">
+						<div class="col-12">
+							<svg width="100%" height="3">
+								<rect width="100%" height="3" style="fill: rgb(255, 255, 255);" />
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="left-3" class="col-2 title">
+				<div class="container-fluid">
+					<div class="row heading">
+						<div class="col-12 d-flex align-items-center justify-content-between">
+							<h2>Handheld</h2>
+							<h2><i class="fas fa-fist-raised"></i></h2>
+						</div>
+					</div>
+					<div class="row separator">
+						<div class="col-12">
+							<svg width="100%" height="3">
+								<rect width="100%" height="3" style="fill: rgb(255, 255, 255);" />
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="left-4" class="col-2 title">
+				<div class="container-fluid">
+					<div class="row heading">
+						<div class="col-12 d-flex align-items-center justify-content-between">
+							<h2>Mobile</h2>
+							<h2><i class="fas fa-mobile-alt"></i></h2>
+						</div>
+					</div>
+					<div class="row separator">
+						<div class="col-12">
+							<svg width="100%" height="3">
+								<rect width="100%" height="3" style="fill: rgb(255, 255, 255);" />
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Right (content) -->
+
+			<!-- PC -->
+			<div id="right-1" class="col-12 col-md-10 content">
+				<div id="content-1" class="container-fluid"> <!-- Container element 1 -->
+					<div class="row headings">
+						<div class="col-4 col-md-1 d-flex align-items-center justify-content-start">
+							<h1>PC</h1>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Alias <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Status <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Nationality <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Skill Rating <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Avg. Contract <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-5 col-md-1 d-flex align-items-center justify-content-end">
+							<!-- Empty (placeholder) -->
+						</div>
+					</div>
+					<div class="row separator">
+						<div class="col-md-12">
+							<svg width="100%" height="3">
+								<rect width="100%" height="3" style="fill: rgb(255, 255, 255);" />
+							</svg>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/valkyrae.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Valkyrae</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/usa.png" alt="USA" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$8,000</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Valkyrae');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/sykunno.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Sykunno</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/sk.png" alt="SK" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$6,400</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Sykunno');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/toast.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Toast</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle offline"></i> Offline</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/china.png" alt="CN" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$7,100</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Toast');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box ">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/ash.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Ash</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/australia.png" alt="AU" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$4,800</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Ash');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/spedicey.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Spedicey</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/ireland.png" alt="IRL" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$5,500</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Spedicey');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Page navigation -->
+					<div class="row profile page">
+						<div class="col-6 d-flex align-items-center">
+							<button type="button" class="btn btn-outline-light disabled"><i class="fas fa-caret-left"></i> Previous</button>
+						</div>
+						<div class="col-6 d-flex align-items-center justify-content-end">
+							<button type="button" class="btn btn-outline-light">Next <i class="fas fa-caret-right"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Console -->
+			<div id="right-2" class="col-12 col-md-10 content">
+				<div id="content-2" class="container-fluid"> <!-- Container element 2 -->
+					<div class="row headings">
+						<div class="col-4 col-md-1 d-flex align-items-center justify-content-start">
+							<h1>CONSOLE</h1>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Alias <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Status <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Nationality <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Skill Rating <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Avg. Contract <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-5 col-md-1 d-flex align-items-center justify-content-end">
+							<!-- Empty (placeholder) -->
+						</div>
+					</div>
+					<div class="row separator">
+						<div class="col-md-12">
+							<svg width="100%" height="3">
+								<rect width="100%" height="3" style="fill: rgb(255, 255, 255);" />
+							</svg>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/lilypichu.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Lilypichu</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/japan.png" alt="JP" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i><i class="fas fa-star"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$7,500</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Lilypichu');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/tinakitten.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Tinakitten</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/sk.png" alt="SK" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$3,400</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Tinakitten');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/kristofer.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Kristofer</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/germany.png" alt="GR" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$4,100</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Kristofer');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/allie.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Allie</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/usa.png" alt="US" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$5,900</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Allie');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/wolfabelle.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Wolfabelle</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle offline"></i> Offline</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/england.png" alt="SK" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$6,300</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Wolfabelle');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Page navigation -->
+					<div class="row profile page">
+						<div class="col-6 d-flex align-items-center">
+							<button type="button" class="btn btn-outline-light disabled"><i class="fas fa-caret-left"></i> Previous</button>
+						</div>
+						<div class="col-6 d-flex align-items-center justify-content-end">
+							<button type="button" class="btn btn-outline-light">Next <i class="fas fa-caret-right"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Handheld -->
+			<div id="right-3" class="col-12 col-md-10 content">
+				<div id="content-3" class="container-fluid"> <!-- Container element 3 -->
+					<div class="row headings">
+						<div class="col-4 col-md-1 d-flex align-items-center justify-content-start">
+							<h1>HANDHELD</h1>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Alias <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Status <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Nationality <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Skill Rating <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Avg. Contract <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-5 col-md-1 d-flex align-items-center justify-content-end">
+							<!-- Empty (placeholder) -->
+						</div>
+					</div>
+					<div class="row separator">
+						<div class="col-md-12">
+							<svg width="100%" height="3">
+								<rect width="100%" height="3" style="fill: rgb(255, 255, 255);" />
+							</svg>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/kristofer.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Kristofer</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/germany.png" alt="GR" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$4,100</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Kristofer');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/wolfabelle.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Wolfabelle</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle offline"></i> Offline</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/england.png" alt="SK" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$6,300</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Wolfabelle');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/lilypichu.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Lilypichu</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/japan.png" alt="JP" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i><i class="fas fa-star"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$7,500</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Lilypichu');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/toast.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Toast</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle offline"></i> Offline</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/china.png" alt="CN" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$7,100</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Toast');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/ash.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Ash</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/australia.png" alt="AU" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$4,800</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Ash');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Page navigation -->
+					<div class="row profile page">
+						<div class="col-6 d-flex align-items-center">
+							<button type="button" class="btn btn-outline-light disabled"><i class="fas fa-caret-left"></i> Previous</button>
+						</div>
+						<div class="col-6 d-flex align-items-center justify-content-end">
+							<button type="button" class="btn btn-outline-light">Next <i class="fas fa-caret-right"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile -->
+			<div id="right-4" class="col-12 col-md-10 content">
+				<div id="content-4" class="container-fluid"> <!-- Container element 4 -->
+					<div class="row headings">
+						<div class="col-4 col-md-1 d-flex align-items-center justify-content-start">
+							<h1>MOBILE</h1>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Alias <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Status <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Nationality <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Skill Rating <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p>Avg. Contract <i class="fas fa-sort"></i></p>
+						</div>
+						<div class="col-5 col-md-1 d-flex align-items-center justify-content-end">
+							<!-- Empty (placeholder) -->
+						</div>
+					</div>
+					<div class="row separator">
+						<div class="col-md-12">
+							<svg width="100%" height="3">
+								<rect width="100%" height="3" style="fill: rgb(255, 255, 255);" />
+							</svg>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/ash.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Ash</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/australia.png" alt="AU" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$4,800</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Ash');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/kibler.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Kibler</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle offline"></i> Offline</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/usa.png" alt="US" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$5,000</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Kibler');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/spedicey.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Spedicey</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/ireland.png" alt="IRL" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$5,500</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Spedicey');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/pillow.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Pillow</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/australia.png" alt="AU" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star-half-alt"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$50</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Pillow');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Mercenary row -->
+					<div class="row profile merc-box darken">
+						<div class="col-3 col-md-1">
+							<img class="avatar" src="images/mercs/sykunno.jpg" alt="Mercenary" />
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<h3 class="merc-name">Sykunno</h3>
+						</div>
+						<div class="col-4 col-md-2 hide-400 d-flex align-items-center justify-content-center">
+							<p class="status"><i class="fas fa-circle"></i> Online</p>
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<img class="flag" src="images/flags/sk.png" alt="SK" />
+						</div>
+						<div class="col-2 hide-400 d-flex align-items-center justify-content-center">
+							<p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+						</div>
+						<div class="col-3 col-md-2 d-flex align-items-center justify-content-center">
+							<p>$6,400</p>
+						</div>
+						<div class="col-3 col-md-1 d-flex align-items-center justify-content-end">
+							<div>
+								<button class="btn btn-outline-warning" type="button" data-bs-toggle="modal" onclick="cardSet('Sykunno');" data-bs-target="#modalCard" aria-expanded="false">Hire</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Page navigation -->
+					<div class="row profile page">
+						<div class="col-6 d-flex align-items-center">
+							<button type="button" class="btn btn-outline-light disabled"><i class="fas fa-caret-left"></i> Previous</button>
+						</div>
+						<div class="col-6 d-flex align-items-center justify-content-end">
+							<button type="button" class="btn btn-outline-light">Next <i class="fas fa-caret-right"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer" class="row d-flex align-items-center">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12 d-flex justify-content-between">
+						<p>SQUADS 2021</p>
+						<p>Terms of Use | Privacy Policy</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modal fade" id="modalCard" tabindex="-1" aria-labelledby="merc-card" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div id="card-header" class="modal-header card">
+					<!-- Generated on mercenary card open -->
+				</div>
+				<div class="modal-body">
+					<h5 id="merc-card" class="modal-title" ><!-- Generated on mercenary card open --></h5>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ullam, veniam vitae perferendis in
+						voluptas inventore sunt? Molestias, veniam enim quam illo alias nihil recusandae, soluta, voluptate
+						totam dolore voluptates.</p>
+					<form>
+						<div class="mb-3">
+							<label for="offer" class="form-label"><i class="fas fa-comments-dollar"></i> Contract Offer</label>
+							<input type="text" class="form-control" id="offer" aria-describedby="merc-hire">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-warning" data-bs-dismiss="modal">Send Offer</button>
+					<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
